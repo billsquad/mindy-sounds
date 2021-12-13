@@ -1,0 +1,9 @@
+const Home = () => {
+  return (
+    <div>
+      h1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1dddddddddddddddddddddddddddddddddddddd
+    </div>
+  );
+};
+
+export default Home;
