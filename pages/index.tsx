@@ -1,9 +1,5 @@
 const Home = () => {
-  return (
-    <div>
-      h1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1ddddddddddddddddddddddddddddddddddddddh1dddddddddddddddddddddddddddddddddddddd
-    </div>
-  );
+  return <div>home</div>;
 };
 
 export default Home;
