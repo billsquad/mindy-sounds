@@ -4,7 +4,7 @@ const protectedPages = ["/", "/playlist", "/library"];
 
 export default function middleware(req) {
   if (protectedPages.find((p) => p === req.nextUrl.pathname)) {
-    const token = req.cookies.MOODY_ACCESS_TOKEN;
+    const { MINDY_ACCESS_TOKEN: token } = req.cookies;
 
     if (!token) {
       return NextResponse.redirect("/signin");

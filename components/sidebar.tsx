@@ -26,7 +26,7 @@ const navMenu = [
     route: "/",
   },
   {
-    name: "Home",
+    name: "Search",
     icon: MdSearch,
     route: "/search",
   },
