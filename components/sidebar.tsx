@@ -44,9 +44,9 @@ const Sidebar = () => {
       route: "/",
     },
     {
-      name: "Favourites",
+      name: "Favorites",
       icon: MdFavorite,
-      route: "/favourites",
+      route: "/favorites",
     },
   ];
 
@@ -84,8 +84,7 @@ const Sidebar = () => {
             ))}
           </List>
         </Box>
-        <Divider color="gray.800" />
-        <Box marginTop="20px">
+        <Box my="20px">
           <List spacing={2}>
             {musicMenu.map((menu) => (
               <ListItem px="20px" fontSize="16px" key={menu.name}>
@@ -105,9 +104,9 @@ const Sidebar = () => {
             ))}
           </List>
         </Box>
-        <Divider color="gray.800" />
-        <Box height="60%" overflowY="auto" py="20px">
-          <List spacing={2}>
+        <Divider coor="gray.800" />
+        <Box height="66%" overflowY="auto" py="20px">
+          <List>
             {playlists.map((playlist) => (
               <ListItem px="20px" key={playlist}>
                 <LinkBox>
