@@ -84,7 +84,7 @@ const Sidebar = () => {
             ))}
           </List>
         </Box>
-        <Box my="20px">
+        <Box marginTop="20px">
           <List spacing={2}>
             {musicMenu.map((menu) => (
               <ListItem px="20px" fontSize="16px" key={menu.name}>
@@ -104,8 +104,8 @@ const Sidebar = () => {
             ))}
           </List>
         </Box>
-        <Divider coor="gray.800" />
-        <Box height="66%" overflowY="auto" py="20px">
+        <Divider marginTop="20px" color="gray.800" />
+        <Box height="60%" overflowY="auto" py="20px">
           <List>
             {playlists.map((playlist) => (
               <ListItem px="20px" key={playlist}>
