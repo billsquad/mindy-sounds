@@ -45,7 +45,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       })
     );
 
-    res.json({ id: user.id, email: user.email, token });
+    res.json({ id: user.id, email: user.email });
   } else {
     res.status(404).json({ error: "Bad Request" });
   }
