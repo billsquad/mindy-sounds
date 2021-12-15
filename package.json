@@ -5,7 +5,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update:migrations": "npx prisma migrate dev",
+    "create:migrations": "npx prisma migrate dev --create-only",
+    "create:seed": "npx prisma db seed"
   },
   "dependencies": {
     "@chakra-ui/layout": "^1.5.1",
