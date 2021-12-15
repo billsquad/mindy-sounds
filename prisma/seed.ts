@@ -12,6 +12,7 @@ const run = async () => {
         update: {},
         create: {
           name: artist.name,
+          avatarUrl: artist.avatarUrl,
           songs: {
             create: artist.songs.map((song) => ({
               name: song.name,
