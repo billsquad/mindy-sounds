@@ -8,7 +8,7 @@ export default async function fetcher(url: string, data = undefined) {
     body: JSON.stringify(data),
   });
   if (res.status > 399 || res.status < 200) {
-    throw new Error("Bad request");
+    console.errpr("Bad Request");
   }
   return res.json();
 }
