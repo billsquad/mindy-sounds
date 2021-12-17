@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "./prisma";
 
@@ -9,10 +9,12 @@ export const validateRoute = (handler) => {
     if (token) {
       let user;
 
+      type JwtPayloadExtended = JwtPayload & { id: number };
+
       try {
-        const { id } = jwt.verify(token, "secret");
+        const decodedData = jwt.verify(token, "secret") as JwtPayloadExtended;
         user = await prisma.user.findUnique({
-          where: { id },
+          where: { id: decodedData.id },
         });
 
         if (!user) {
