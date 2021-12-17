@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "ts:check": "tsc",
     "prisma:studio:": "npx prisma studio",
     "update:migrations": "npx prisma migrate dev",
     "create:migrations": "npx prisma migrate dev --create-only",
