@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
-import { Box, Flex, Input, Button } from "@chakra-ui/react";
+import { Box, Flex, FormControl, Input, Button, Text } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
 import NextImage from "next/image";
 import { auth } from "../lib/mutations";
@@ -31,7 +32,7 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
       </Flex>
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Box padding="50px" bg="gray.900" borderRadius="6px">
-          <form onSubmit={handleSubmit}>
+          <FormControl onSubmit={handleSubmit} my="20px">
             <Input
               placeholder="email"
               type="email"
@@ -54,7 +55,12 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
             >
               {mode}
             </Button>
-          </form>
+          </FormControl>
+          <Center>
+            <Text>
+              Test Credentials: email: user@test.com password: password
+            </Text>
+          </Center>
         </Box>
       </Flex>
     </Box>
