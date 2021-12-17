@@ -6,7 +6,26 @@ import { useMe } from "../lib/hooks";
 import prisma from "../lib/prisma";
 
 const Home = ({ artists }) => {
-  const { user } = useMe();
+  const { user, isError } = useMe();
+
+  if (isError) {
+    return (
+      <GradientLayout
+        color="gray"
+        subtitle="error"
+        title="Error Page"
+        description="An error occurred"
+        image="https://images.pexels.com/photos/6367403/pexels-photo-6367403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        roundImage
+      >
+        <Box marginBottom="40px">
+          <Text fontSize="4xl" fontWeight="bold">
+            😿
+          </Text>
+        </Box>
+      </GradientLayout>
+    );
+  }
 
   return (
     <GradientLayout
