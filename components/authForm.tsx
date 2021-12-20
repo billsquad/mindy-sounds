@@ -26,6 +26,7 @@ const AuthForm = ({ mode = "signin", isSignin = false }: AuthFormProps) => {
       await signinAuth(mode as "signin", { email, password });
       setIsLoading(false);
       router.push("/");
+      return;
     }
 
     await signupAuth(mode as "signup", { username, email, password });
