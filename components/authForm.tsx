@@ -1,11 +1,18 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { Box, Flex, Input, Button, Text } from "@chakra-ui/react";
 import { Center } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
 import NextImage from "next/image";
-import { auth } from "../lib/mutations";
+import { signinAuth, signupAuth } from "../lib/mutations";
 
-const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
+type AuthFormProps = {
+  mode: "signin" | "signup";
+  // eslint-disable-next-line react/require-default-props
+  isSignin?: boolean;
+};
+
+const AuthForm = ({ mode = "signin", isSignin = false }: AuthFormProps) => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -15,9 +22,15 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
     e.preventDefault();
     setIsLoading(true);
 
-    await auth(mode, { email, password });
+    if (isSignin) {
+      await signinAuth(mode as "signin", { email, password });
+      setIsLoading(false);
+      router.push("/");
+    }
+
+    await signupAuth(mode as "signup", { username, email, password });
     setIsLoading(false);
-    router.push("/");
+    router.push("/signin");
   };
 
   return (
@@ -33,16 +46,38 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Box padding="50px" bg="gray.900" borderRadius="6px">
           <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
-            <Input
-              placeholder="email"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              placeholder="password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            {isSignin ? (
+              <>
+                <Input
+                  placeholder="email"
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                  placeholder="password"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </>
+            ) : (
+              <>
+                <Input
+                  placeholder="username"
+                  type="text"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <Input
+                  placeholder="email"
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                  placeholder="password"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </>
+            )}
             <Button
               type="submit"
               bg="green.500"
